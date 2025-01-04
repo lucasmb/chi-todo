@@ -6,5 +6,6 @@
            hx-swap="outerHTML"
            hx-vals='{"id": "{{.ID}}"}'>
     <label for="check-{{.ID}}">{{.Text}}</label>
-</div>
+    <sub style="margin-left: 20px;">{{ formatDate .CreatedAt }}</sub>
+ </div>
 {{end}}

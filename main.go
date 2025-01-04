@@ -52,21 +52,24 @@ type TemplateData struct {
 	Todos []Todo
 }
 
+// ... other code
+
+func formatDate(t time.Time) string {
+	return t.Format("2006-01-02 15:04:05") // Your desired format
+}
+
 func initTemplates() {
 	var err error
 
-	// tmpl = template.New("base") // Create the main template
 	tmpl = template.New("main") // Create the main template set
-	// Parse the base template FIRST
+
+	tmpl.Funcs(template.FuncMap{
+		"formatDate": formatDate, // Register the function with the template
+	})
 	// Then parse the other templates
 	tmpl, err = tmpl.ParseGlob("templates/*.html")
 	if err != nil {
 		log.Fatalf("Parsing templates: %v", err) // More specific error message
-	}
-
-	fmt.Println("Parsed templates:")
-	for _, t := range tmpl.Templates() {
-		fmt.Println("-", t.Name())
 	}
 
 }

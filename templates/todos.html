@@ -1,4 +1,5 @@
 {{define "content"}}
+    <h3>New Todo</h3>
     <form hx-post="/todos" hx-target="#todo-list" hx-swap="outerHTML" hx-indicator="#loading">
         <input type="text" name="text" placeholder="Add a todo">
         <button type="submit">Add</button>
