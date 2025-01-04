@@ -1,0 +1,9 @@
+{{define "_todo-list"}}
+<div id="todo-list">
+    {{range .Todos}}
+        {{template "_todo-item" .}} {{/* Use the single todo partial */}}
+    {{else}}
+        <p>No todos yet.</p>
+    {{end}}
+</div>
+{{end}}

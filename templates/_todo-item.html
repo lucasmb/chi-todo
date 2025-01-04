@@ -1,0 +1,10 @@
+{{define "_todo-item"}}
+<div id="todo-{{.ID}}">
+    <input type="checkbox" id="check-{{.ID}}" {{if .Completed}}checked{{end}}
+           hx-put="/todos/{{.ID}}"
+           hx-target="#todo-{{.ID}}"
+           hx-swap="outerHTML"
+           hx-vals='{"id": "{{.ID}}"}'>
+    <label for="check-{{.ID}}">{{.Text}}</label>
+</div>
+{{end}}

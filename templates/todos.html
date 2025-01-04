@@ -1,0 +1,22 @@
+{{define "content"}}
+    <form hx-post="/todos" hx-target="#todo-list" hx-swap="outerHTML" hx-indicator="#loading">
+        <input type="text" name="text" placeholder="Add a todo">
+        <button type="submit">Add</button>
+    </form>
+    <div id="loading" class="hidden">Loading...</div>
+
+    {{template "_todo-list" .}}
+
+<style>
+    .hidden {
+        display: none;
+    }
+    #loading.htmx-request {
+        display: block; /* Show when there is a request */
+    }
+</style>
+{{end}}
+
+{{define "todos"}} {{/* Define the todos template */}}
+{{template "base" .}}
+{{end}}
