@@ -1,0 +1,8 @@
+#db
+*.db
+
+node_modules
+tmp
+bin
+
+.env
